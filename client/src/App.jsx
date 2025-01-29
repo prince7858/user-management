@@ -8,6 +8,14 @@ const App = () => {
   const [userList, setUserList] = useState([]);
   const [currentUser, setCurrentUser] = useState(null);
 
+  useEffect(() => {
+    // Example logic to check if user is logged in (you can replace it with your logic)
+    const storedUser = localStorage.getItem("currentUser");
+    if (storedUser) {
+      setCurrentUser(JSON.parse(storedUser));
+    }
+  }, []);
+
   return (
     <div>
       <Router>
